@@ -26,3 +26,22 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Deploys to firebase
+
+In order to run deploys you have to have firebase-tools installed in your machine: `npm install -g firebase-tools`
+
+When you have that ready follow the steps explained above:
+
+1. Sign in to Google: `$ firebase login`
+2. Add the file .firebaserc and configure it this way:
+
+```
+{
+  "projects": {
+    "default": "NAME_OF_YOUR_FIREBASE_PROJECT"
+  }
+}
+```
+
+3. Deploy your website: `$ firebase deploy`
