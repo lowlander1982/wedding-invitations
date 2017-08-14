@@ -44,4 +44,6 @@ When you have that ready follow the steps explained above:
 }
 ```
 
-3. Deploy your website: `$ firebase deploy`
+3. Make a duplicate of `/src/environments/environment.ts.example` on `/src/environments/environment.ts` and fill the template information
+
+4. Deploy your website: `$ firebase deploy`
