@@ -1,0 +1,17 @@
+{
+  "invitations": {
+    "invitation_id": {
+      "family_head": "Example name here",
+      "email": "example@email.com",
+      "phone": "1234567890",
+      "address": "Example address",
+      "building_name": "Example Building Name",
+      "tower": null,
+      "apartment": null,
+      "city": "Example City",
+      "country": "Example Country",
+      "significant_other": "Example name here",
+      "children": ["Example name here", "Example name here", "Example name here"]
+    }
+  }
+}
