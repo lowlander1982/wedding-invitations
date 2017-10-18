@@ -1,38 +1,205 @@
-<form>
-  <div class="form-group">
-    <label for="family_head">Cabeza de familia</label>
-    <input type="text" id="family_head" name="family_head" [value]="(invitation | async)?.family_head">
+<section id="home" class="cover height-100 imagebg text-center parallax" data-overlay="3">
+  <div class="background-image-holder" style="background: url('assets/img/wedding-1.jpg'); opacity: 1;">
   </div>
-  <div class="form-group">
-    <label for="email">Correo electrónico</label>
-    <input type="text" id="email" name="email" [value]="(invitation | async)?.email">
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="h1--large">
+          Fonne &amp; Diana
+        </h1>
+        <p class="lead">
+          Diciembre 08, 2017 &bull; Tulua - Valle del Cauca, Colombia
+        </p>
+        <a class="btn btn--primary type--uppercase inner-link" href="#rsvp">
+          <span class="btn__text">
+            Confirmar
+          </span>
+        </a>
+      </div>
+    </div>
+    <!--end of row-->
   </div>
-  <div class="form-group">
-    <label for="phone">Teléfono celular</label>
-    <input type="text" id="phone" name="phone" [value]="(invitation | async)?.phone">
-  </div>
-  <div class="form-group">
-    <label for="address">Dirección</label>
-    <input type="text" id="address" name="address" [value]="(invitation | async)?.address">
-  </div>
-  <div class="form-group">
-    <label for="tower">Torre</label>
-    <input type="text" id="tower" name="tower" [value]="(invitation | async)?.tower">
-  </div>
-  <div class="form-group">
-    <label for="apartment">Apartamento</label>
-    <input type="text" id="apartment" name="apartment" [value]="(invitation | async)?.apartment">
-  </div>
-  <div class="form-group">
-    <label for="city">Ciudad</label>
-    <input type="text" id="city" name="city" [value]="(invitation | async)?.city">
-  </div>
-  <div class="form-group">
-    <label for="country">País</label>
-    <input type="text" id="country" name="country" [value]="(invitation | async)?.country">
-  </div>
-  <div class="form-group">
-    <label for="significant_other">Compañero sentimental</label>
-    <input type="text" id="significant_other" name="significant_other" [value]="(invitation | async)?.significant_other">
-  </div>
+  <!--end of container-->
+</section>
+<form [formGroup]="invitationForm" name="invitationForm">
+  <section id="story" class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-md-8">
+          <h2>Please join us this spring on The Mornington Peninsula to celebrate our marriage</h2>
+          <p class="lead-justify">
+            Hola
+            <input type="text" id="family_head" name="family_head" class="input-underline" formControlName="family_head">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis aliquam nisi, id interdum nisl. Pellentesque
+            <input type="text" id="significant_other" name="significant_other" class="input-underline" formControlName="significant_other">
+            nibh, quis elementum sapien varius et. Duis tempor non nisi eget rutrum. Cras libero erat, dignissim sed est
+          </p>
+          <h2>Hijos</h2>
+          <ul>
+            <li *ngFor="let children of childrenForm; let i = index ; trackBy: trackByIndex" class="lead">
+              <input type="text" id="children" name="children" class="input-underline"
+                [(ngModel)]="childrenForm[i]" [ngModelOptions]="{standalone: true}">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
+  <section id="rsvp" class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-md-8">
+          <h2>Say you'll be there!</h2>
+          <p class="lead">
+            Please RSVP by August 30th at the latest. If you'd rather let us know by phone,
+            <br class="hidden-xs hidden-sm" /> give Mira or Lucas a call to confirm.
+          </p>
+        </div>
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
+  <section class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-5">
+          <div class="col-xs-6 col-sm-6 text-left text-center-xs marginBottom">
+            <div class="input-radio">
+              <label class="lead">Asistir</label>
+              <input checked="checked" type="radio" name="rsvp" value="Attending" class="validate-required" formControlName="rsvp" />
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 text-right text-center-xs marginBottom">
+            <div class="input-radio">
+              <label class="lead">No puedo ir</label>
+              <input type="radio" name="rsvp" value="Not Attending" class="validate-required" formControlName="rsvp" />
+            </div>
+          </div>
+
+          <div class="col-sm-12 marginBottom">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6">
+                <span class="lead">Adultos</span><br>
+                <input type="text" formControlName="attendeeAdult" name="attendeeAdult"  />
+              </div>
+              <div class="col-xs-6 col-sm-6">
+                <span class="lead">Menores</span><br>
+                <input type="text" formControlName="attendeeChildren" name="attendeeChildren"  />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <span class="lead">Tienes alguna pregunta? Escribenos</span>
+          </div>
+          <div class="col-sm-12">
+            <textarea name="anwser" formControlName="comments" cols="30" rows="10" placeholder="Necesito me recoja en el aeropuerto..."></textarea>
+          </div>
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn--primary type--uppercase" (click)="saveRSVP(invitationForm.value)">Guardar</button>
+          </div>
+        </div>
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
 </form>
+
+<section id="ceremony" class="cover height-80 imagebg text-center parallax" data-overlay="3">
+  <div class="background-image-holder">
+    <img alt="background" src="assets/img/wedding-2.jpg" />
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>
+          The Ceremony
+        </h1>
+        <p class="lead">
+          October 29th 2017 &bull; 3:30pm
+          <br /> Merri Family Vineyard
+          <br /> 142 Repton Road, Flinders
+        </p>
+        <a class="btn btn--primary type--uppercase" href="#">
+          <span class="btn__text">
+            Directions
+          </span>
+        </a>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>
+<section id="couple" class="imageblock switchable feature-large space--xs">
+  <div class="imageblock__content col-md-6 col-sm-4 pos-right">
+    <div class="background-image-holder" style="background: url('assets/img/wedding-3.jpg'); opacity: 1;">
+      <img alt="image" src="assets/img/wedding-3.jpg" />
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-sm-7">
+        <h2>Memories, oh memories&hellip;</h2>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p class="lead">
+          uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p class="lead">
+          &mdash; Mira &amp; Lucas x
+        </p>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>
+<section id="reception" class="cover height-80 imagebg text-center parallax" data-overlay="3">
+  <div class="background-image-holder">
+    <img alt="background" src="assets/img/wedding-4.jpg" />
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>
+          The Ceremony
+        </h1>
+        <p class="lead">
+          October 29th 2017 &bull; 3:30pm
+          <br /> Merri Family Vineyard
+          <br /> 142 Repton Road, Flinders
+        </p>
+        <a class="btn btn--primary type--uppercase" href="#">
+          <span class="btn__text">
+            Directions
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <h1>
+          The Reception
+        </h1>
+        <p class="lead">
+          October 29th 2017 &bull; 4:30pm
+          <br /> Merri Family Yacht
+          <br /> 12 Brents Pier, Mornington
+        </p>
+        <a class="btn btn--primary type--uppercase" href="#">
+          <span class="btn__text">
+            Directions
+          </span>
+        </a>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>

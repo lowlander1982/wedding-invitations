@@ -1,43 +1,76 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-invited',
   templateUrl: './invited.component.html',
   styleUrls: ['./invited.component.css']
 })
+
 export class InvitedComponent implements OnInit {
 
-  invitation: FirebaseObjectObservable<{
-    family_head:string,
-    email:string,
-    phone:string,
-    address:string,
-    building_name:string,
-    tower:string,
-    apartment:string,
-    city:string,
-    country:string,
-    significant_other:string,
-    children:string[]
+  public invitationForm: FormGroup;
+
+  private invitation: FirebaseObjectObservable<{
+    family_head: string,
+    email: string,
+    phone: string,
+    address: string,
+    building_name: string,
+    tower: string,
+    apartment: string,
+    city: string,
+    country: string,
+    significant_other: string,
+    children: string[]
   }>;
 
+  childrenForm: Array<string>;
+
   constructor(
+    private af: AngularFireDatabase,
     private route: ActivatedRoute,
     private router: Router,
-    private db: AngularFireDatabase
+    private fb: FormBuilder
   ) { }
 
+
   ngOnInit() {
-    this.route.paramMap
-      .subscribe((invitationId) => {
-        this.invitation = this.db.object(`/invitations/${invitationId.get('id')}`);
+    this.invitationForm = this.fb.group({
+      family_head:    ['', Validators.required ],
+      significant_other:  ['', Validators.required ],
+      children: [[]],
+      rsvp: ['', Validators.required ],
+      attendeeAdult: ['', Validators.required ],
+      attendeeChildren: ['', Validators.required ],
+      comments: ['']
+    });
+
+    this.route.params.subscribe(params => {
+      this.invitation = this.af.object(`/invitations/${params['id']}`)
+
+      this.invitation.subscribe(inv => {
+        this.invitationForm.patchValue(inv);
+
+        this.childrenForm = inv.children;
+      });
     });
   }
 
   onSubmit() {
     console.log('entre');
+  }
+
+  saveRSVP(): void {
+    this.invitationForm.value.children = this.childrenForm;
+
+    this.invitation.update(this.invitationForm.value)
+    .then(_ => console.log('Done!!'))
+    .catch(err => console.log(err));
   }
 
 }
