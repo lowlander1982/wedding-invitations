@@ -8,13 +8,11 @@
           Fonne &amp; Diana
         </h1>
         <p class="lead">
-          Diciembre 08, 2017 &bull; Tulua - Valle del Cauca, Colombia
+          Diciembre 08, 2017
         </p>
-        <a class="btn btn--primary type--uppercase inner-link" href="#rsvp">
-          <span class="btn__text">
-            Confirmar
-          </span>
-        </a>
+        <p class="lead">
+          Tulua - Valle del Cauca, Colombia
+        </p>
       </div>
     </div>
     <!--end of row-->
@@ -26,7 +24,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-10 col-md-8">
-          <h2>Please join us this spring on The Mornington Peninsula to celebrate our marriage</h2>
+          <h2>Tu haces parte de esta gran celebración, nuestro matrimonio</h2>
           <p class="lead-justify">
             Hola
             <input type="text" id="family_head" name="family_head" class="input-underline" formControlName="family_head">
@@ -47,11 +45,25 @@
     </div>
     <!--end of container-->
   </section>
+  <section id="map" class="height-80 text-center" >
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>
+            Donde
+          </h2>
+        </div>
+      </div>
+      <agm-map [latitude]="cntLat" [longitude]="cntLng" [scrollwheel]="false" [zoom]="16">
+        <agm-marker [latitude]="cntLat" [longitude]="cntLng"></agm-marker>
+        <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+      </agm-map>
+      <!--end of container-->
+    </section>
   <section id="rsvp" class="text-center">
     <div class="container">
       <div class="row">
         <div class="col-sm-10 col-md-8">
-          <h2>Say you'll be there!</h2>
+          <h2>¡Dí que estarás allí!</h2>
           <p class="lead">
             Please RSVP by August 30th at the latest. If you'd rather let us know by phone,
             <br class="hidden-xs hidden-sm" /> give Mira or Lucas a call to confirm.
@@ -93,7 +105,7 @@
           </div>
 
           <div class="col-sm-12">
-            <span class="lead">Tienes alguna pregunta? Escribenos</span>
+            <span class="lead">Tienes alguna pregunta</span>
           </div>
           <div class="col-sm-12">
             <textarea name="anwser" formControlName="comments" cols="30" rows="10" placeholder="Necesito me recoja en el aeropuerto..."></textarea>
@@ -108,96 +120,45 @@
     <!--end of container-->
   </section>
 </form>
-
-<section id="ceremony" class="cover height-80 imagebg text-center parallax" data-overlay="3">
-  <div class="background-image-holder">
-    <img alt="background" src="assets/img/wedding-2.jpg" />
-  </div>
-  <div class="container pos-vertical-center">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1>
-          The Ceremony
-        </h1>
-        <p class="lead">
-          October 29th 2017 &bull; 3:30pm
-          <br /> Merri Family Vineyard
-          <br /> 142 Repton Road, Flinders
-        </p>
-        <a class="btn btn--primary type--uppercase" href="#">
-          <span class="btn__text">
-            Directions
-          </span>
-        </a>
-      </div>
-    </div>
-    <!--end of row-->
-  </div>
-  <!--end of container-->
-</section>
-<section id="couple" class="imageblock switchable feature-large space--xs">
-  <div class="imageblock__content col-md-6 col-sm-4 pos-right">
-    <div class="background-image-holder" style="background: url('assets/img/wedding-3.jpg'); opacity: 1;">
-      <img alt="image" src="assets/img/wedding-3.jpg" />
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 col-sm-7">
-        <h2>Memories, oh memories&hellip;</h2>
-        <p class="lead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p class="lead">
-          uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p class="lead">
-          &mdash; Mira &amp; Lucas x
-        </p>
-      </div>
-    </div>
-    <!--end of row-->
-  </div>
-  <!--end of container-->
-</section>
-<section id="reception" class="cover height-80 imagebg text-center parallax" data-overlay="3">
+<section id="reception" class="cover height-80 imagebg text-center parallax" data-overlay="3"
+  style="background: url('assets/img/wedding-4.jpg'); opacity: 1; background-size: cover;">
   <div class="background-image-holder">
     <img alt="background" src="assets/img/wedding-4.jpg" />
   </div>
   <div class="container pos-vertical-center">
     <div class="row">
-      <div class="col-sm-6">
-        <h1>
+      <div class="col-sm-6 marginBottom">
+        <h2>
           The Ceremony
-        </h1>
+        </h2>
         <p class="lead">
           October 29th 2017 &bull; 3:30pm
           <br /> Merri Family Vineyard
           <br /> 142 Repton Road, Flinders
         </p>
-        <a class="btn btn--primary type--uppercase" href="#">
-          <span class="btn__text">
-            Directions
-          </span>
+        <a href="#">
+          <img src="assets/img/waze.png" alt="waze" class="waze">
+        </a>
+        <a href="#">
+          <img src="assets/img/google.png" alt="Google Maps" class="google">
         </a>
       </div>
-      <div class="col-sm-6">
-        <h1>
+      <div class="col-sm-6 marginBottom">
+        <h2>
           The Reception
-        </h1>
+        </h2>
         <p class="lead">
           October 29th 2017 &bull; 4:30pm
           <br /> Merri Family Yacht
           <br /> 12 Brents Pier, Mornington
         </p>
-        <a class="btn btn--primary type--uppercase" href="#">
-          <span class="btn__text">
-            Directions
-          </span>
+        <a href="#">
+          <img src="assets/img/waze.png" alt="waze" class="waze">
         </a>
-      </div>
+        <a href="#">
+          <img src="assets/img/google.png" alt="Google Maps" class="google">
+        </a>
+    </div>
     </div>
     <!--end of row-->
   </div>

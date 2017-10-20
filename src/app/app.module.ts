@@ -9,6 +9,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { InvitedComponent } from './invited/invited.component';
 import { AdministrationComponent } from './administration/administration.component';
@@ -34,7 +36,10 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUq8cEfGCLxn-YvBkghwEetK-ZW6gVL6E'
+    })
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]
