@@ -48,11 +48,11 @@ export class InvitedComponent implements OnInit {
 
   ngOnInit() {
     this.invitationForm = this.fb.group({
-      family_head:    ['', Validators.required ],
-      significant_other:  ['', Validators.required ],
+      family_head: ['', Validators.required ],
+      significant_other: ['', Validators.required ],
       children: [[]],
-      rsvp: ['', Validators.required ],
-      attendeeAdult: ['', Validators.required ],
+      rsvp: ['Attending', Validators.required ],
+      attendeeAdult: [1, Validators.required ],
       attendeeChildren: ['', Validators.required ],
       comments: ['']
     });

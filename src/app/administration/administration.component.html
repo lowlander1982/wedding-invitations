@@ -1,3 +1,25 @@
-<p>
-  administration works!
-</p>
+<h1>
+  Assistenss
+</h1>
+
+<table class="border--round table--alternate-row">
+	<thead>
+		<tr>
+			<th>Family Head</th>
+			<th>Significant Other</th>
+			<th>Attendees Adult</th>
+      <th>Attendees Children</th>
+      <th>Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let invitation of (invitations$ | async)">
+			<td>{{ invitation.family_head }}</td>
+			<td>{{ invitation.significant_other }}</td>
+			<td>{{ invitation.attendeeAdult }}</td>
+      <td>{{ invitation.attendeeChildren }}</td>
+      <td>{{ invitation.comments | truncate : 25 }}</td>
+		</tr>
+	</tbody>
+</table>
+

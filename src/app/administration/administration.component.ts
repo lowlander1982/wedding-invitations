@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-administration',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrationComponent implements OnInit {
 
-  constructor() { }
+  invitations$: FirebaseListObservable<any[]>;
+
+  constructor(private af: AngularFireDatabase) { }
 
   ngOnInit() {
+    this.invitations$ = this.af.list('/invitations');
   }
 
 }

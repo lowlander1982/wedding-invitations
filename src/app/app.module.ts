@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { InvitedComponent } from './invited/invited.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TruncatePipe } from './shared/helpers/truncate';
 
 const appRoutes: Routes = [
   { path: 'admin/list', component: AdministrationComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     InvitedComponent,
     AdministrationComponent,
     NotFoundComponent,
+    TruncatePipe
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
