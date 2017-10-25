@@ -1142,9 +1142,9 @@ input[type="text"].input-underline {
   border: none;
   border-bottom: solid 2px #c9c9c9;
   border-radius: 0;
+  box-sizing: content-box;
   height: 1.35714286em;
   font-style: italic;
-  padding: 10px;
   text-align: center;
   transition: border 0.3s;
   width: auto !important;
