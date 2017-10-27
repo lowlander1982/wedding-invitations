@@ -31,12 +31,12 @@ export class InvitedComponent implements OnInit {
 
   childrenForm: Array<string>;
   title = 'My first AGM project';
-  cntLat = 4.086021;
-  cntLng = -76.198183
-  lat1 = 4.086021;
-  lng1 = -76.198183;
-  lat2 = 51.458418;
-  lng2 = 7.459007;
+  cntLat = 4.074516;
+  cntLng = -76.194886;
+  lat1 = 4.063102;
+  lng1 = -76.193843;
+  lat2 = 4.083950;
+  lng2 = -76.193360;
 
   constructor(
     private af: AngularFireDatabase,
