@@ -11,7 +11,7 @@
           Diciembre 08, 2017
         </p>
         <p class="lead">
-          Tulua - Valle del Cauca, Colombia
+          Tul&uacute;a - Valle del Cauca, Colombia
         </p>
       </div>
     </div>
@@ -26,13 +26,13 @@
         <div class="col-sm-10 col-md-8">
           <h2>Tu haces parte de esta gran celebración, nuestro matrimonio</h2>
           <p class="lead-justify">
-            Hola
-            <input type="text" id="family_head" name="family_head" class="input-underline" formControlName="family_head">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis aliquam nisi, id interdum nisl. Pellentesque
+            Hola <input type="text" id="family_head" name="family_head" class="input-underline" formControlName="family_head">
+            queremos invitarte a ti y a
             <input type="text" id="significant_other" name="significant_other" class="input-underline" formControlName="significant_other">
-            nibh, quis elementum sapien varius et. Duis tempor non nisi eget rutrum. Cras libero erat, dignissim sed est
+            a que compartan con nosotros el momento m&aacute;s importante de nuestras vidas,
+            en el cual ante Dios y ustedes, comenzaremos un camino unidos en matrimonio.
           </p>
-          <h2>Hijos</h2>
+          <h2>Te esperamos junto a tus hijos</h2>
           <ul>
             <li *ngFor="let children of childrenForm; let i = index ; trackBy: trackByIndex" class="lead">
               <input type="text" id="children" name="children" class="input-underline"
@@ -53,9 +53,17 @@
           </h2>
         </div>
       </div>
-      <agm-map [latitude]="cntLat" [longitude]="cntLng" [scrollwheel]="false" [zoom]="15">
-        <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
-        <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+      <agm-map [latitude]="cntLat" [longitude]="cntLng" [scrollwheel]="false" [zoom]="14">
+        <agm-marker [latitude]="lat1" [longitude]="lng1">
+          <agm-info-window #infoWindow isOpen="true">
+            <strong>La recepci&oacute;n!!</strong>
+          </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="lat2" [longitude]="lng2">
+          <agm-info-window #infoWindow isOpen="true">
+            <strong>La boda!!</strong>
+          </agm-info-window>
+        </agm-marker>
       </agm-map>
       <!--end of container-->
     </section>
@@ -65,8 +73,8 @@
         <div class="col-sm-10 col-md-8">
           <h2>¡Dí que estarás allí!</h2>
           <p class="lead">
-            Please RSVP by August 30th at the latest. If you'd rather let us know by phone,
-            <br class="hidden-xs hidden-sm" /> give Mira or Lucas a call to confirm.
+            Confirmanos tu asistencia, pero si van a ir menos cambia los campos
+            para ser m&aacute;s precisos y mejorar tu experiencia.
           </p>
         </div>
       </div>
@@ -110,7 +118,7 @@
           <div class="col-sm-12">
             <textarea name="anwser" formControlName="comments" cols="30" rows="10" placeholder="Necesito me recoja en el aeropuerto..."></textarea>
           </div>
-          <div class="col-sm-12">
+          <div class="col-sm-12 with-paddings">
             <button type="submit" class="btn btn--primary type--uppercase" (click)="saveRSVP(invitationForm.value)">Guardar</button>
           </div>
         </div>
@@ -136,7 +144,7 @@
           <br /> Capilla Madres Franciscanas
           <br /> Cl. 26 #26-2 a, Tuluá, Valle del Cauca
         </p>
-        <a target="_blank" href="https://waze.com/ul?ll=4.063102,-76.193843">
+        <a target="_blank" href="https://waze.com/ul?ll=4.083950,-76.193360">
           <img src="assets/img/waze.png" alt="waze" class="waze">
         </a>
         <a target="_blank" href="https://www.google.com.co/maps/place/Capilla+Mdres+Franciscanas+Y+Orfanato./@4.0838741,-76.1939125,291m/data=!3m2!1e3!4b1!4m13!1m7!3m6!1s0x8e39c5c4969b0dfd:0xc454cade2e39cb5c!2sCra.+32,+Tulu%C3%A1,+Valle+del+Cauca!3b1!8m2!3d4.086091!4d-76.1931944!3m4!1s0x8e39c5c5ac5011b1:0xc86effa1b1af024a!8m2!3d4.0838728!4d-76.1933653?hl=en">
@@ -152,7 +160,7 @@
           <br /> Parque Carlos Sarmiento Lora
           <br /> Tuluá, Valle del Cauca
         </p>
-        <a target="_blank" href="https://waze.com/ul?ll=4.083950,-76.193360">
+        <a target="_blank" href="https://waze.com/ul?ll=4.063102,-76.193843">
           <img src="assets/img/waze.png" alt="waze" class="waze">
         </a>
         <a target="_blank" href="https://www.google.com.co/maps/dir//Carlos+Sarmiento+Lora+Park,+Tulu%C3%A1,+Valle+del+Cauca/@4.0630967,-76.1960529,17z/data=!4m16!1m6!3m5!1s0x8e39c430f93c431d:0x1002bf590747cf3a!2sCarlos+Sarmiento+Lora+Park!8m2!3d4.0630967!4d-76.1938642!4m8!1m0!1m5!1m1!1s0x8e39c430f93c431d:0x1002bf590747cf3a!2m2!1d-76.1938642!2d4.0630967!3e2?hl=en">

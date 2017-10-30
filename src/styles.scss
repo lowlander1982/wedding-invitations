@@ -1424,6 +1424,10 @@ button {
   }
 }
 
+.main-container {
+  overflow: hidden;
+}
+
 .main-container > a:first-child + .parallax .background-image-holder {
   top: 0;
 }
@@ -2863,6 +2867,14 @@ section.parallax .row .background-image-holder {
       margin-bottom: 15px;
     }
   }
+}
+
+.with-paddings {
+  padding-right: 15px !important;
+}
+
+.text-center-xs {
+  z-index: 3;
 }
 
 /*! -- Stack Titles -- */

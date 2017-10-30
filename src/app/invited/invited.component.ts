@@ -52,7 +52,7 @@ export class InvitedComponent implements OnInit {
       significant_other: ['', Validators.required ],
       children: [[]],
       rsvp: ['Attending', Validators.required ],
-      attendeeAdult: [1, Validators.required ],
+      attendeeAdult: ['', Validators.required ],
       attendeeChildren: ['', Validators.required ],
       comments: ['']
     });
