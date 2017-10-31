@@ -31,9 +31,11 @@
             en el cual ante Dios y ustedes, comenzaremos un camino unidos en matrimonio.
           </p>
           <ng-template #elseBlock>
-            Hola <strong>{{ head }}</strong>,
-            queremos invitarte a que compartas con nosotros el momento m&aacute;s importante de nuestras vidas,
-            en el cual ante Dios y todos los presentes, comenzaremos un camino unidos en matrimonio.
+            <p class="lead">
+              Hola <strong>{{ head }}</strong>,
+              queremos invitarte a que compartas con nosotros el momento m&aacute;s importante de nuestras vidas,
+              en el cual ante Dios y todos los presentes, comenzaremos un camino unidos en matrimonio.
+            </p>
           </ng-template>
           <h2 *ngIf="hasChildren">Te esperamos junto a tus hijos</h2>
           <ul *ngIf="hasChildren">
