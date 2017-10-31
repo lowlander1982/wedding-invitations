@@ -14,6 +14,10 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 export class InvitedComponent implements OnInit {
 
   public invitationForm: FormGroup;
+  public moreThanOne: boolean = false;
+  public hasChildren: boolean = false;
+  public head: string = '';
+  public plusOne: string = '';
 
   private invitation: FirebaseObjectObservable<{
     family_head: string,
@@ -52,7 +56,7 @@ export class InvitedComponent implements OnInit {
       significant_other: ['', Validators.required ],
       children: [[]],
       rsvp: ['Attending', Validators.required ],
-      attendeeAdult: ['', Validators.required ],
+      attendeeAdult: ['1', Validators.required ],
       attendeeChildren: ['', Validators.required ],
       comments: ['']
     });
@@ -64,6 +68,10 @@ export class InvitedComponent implements OnInit {
         this.invitationForm.patchValue(inv);
 
         this.childrenForm = inv.children;
+        this.hasChildren = !!inv.children.length;
+        this.moreThanOne = !!inv.significant_other;
+        this.head = inv.family_head;
+        this.plusOne = inv.significant_other
       });
     });
   }
