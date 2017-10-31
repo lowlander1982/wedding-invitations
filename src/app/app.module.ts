@@ -19,7 +19,7 @@ import { TruncatePipe } from './shared/helpers/truncate';
 
 const appRoutes: Routes = [
   { path: 'admin/list', component: AdministrationComponent },
-  { path: 'invitation/:id', component: InvitedComponent },
+  { path: ':id', component: InvitedComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
