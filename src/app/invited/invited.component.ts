@@ -18,6 +18,7 @@ export class InvitedComponent implements OnInit {
   public hasChildren: boolean = false;
   public head: string = '';
   public plusOne: string = '';
+  public successMessage: string = '';
 
   private invitation: FirebaseObjectObservable<{
     family_head: string,
@@ -56,8 +57,6 @@ export class InvitedComponent implements OnInit {
       significant_other: ['', Validators.required ],
       children: [[]],
       rsvp: ['Attending', Validators.required ],
-      attendeeAdult: ['1', Validators.required ],
-      attendeeChildren: ['', Validators.required ],
       comments: ['']
     });
 
@@ -81,10 +80,12 @@ export class InvitedComponent implements OnInit {
   }
 
   saveRSVP(): void {
-    this.invitationForm.value.children = this.childrenForm;
+    if (this.childrenForm && this.childrenForm.length) {
+      this.invitationForm.value.children = this.childrenForm;
+    }
 
     this.invitation.update(this.invitationForm.value)
-    .then(_ => console.log('Done!!'))
+    .then(_ => this.successMessage = 'Gracias! Te esperamos en la boda.')
     .catch(err => console.log(err));
   }
 

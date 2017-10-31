@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-sm-10 col-md-8">
           <h2>Tu haces parte de esta gran celebración, nuestro matrimonio</h2>
-          <p class="lead-justify" *ngIf="moreThanOne; else elseBlock">
+          <p class="lead" *ngIf="moreThanOne; else elseBlock">
             Hola <strong>{{ head }}</strong>, queremos invitarte a ti y a <strong>{{ plusOne }}</strong>
             a que compartan con nosotros el momento m&aacute;s importante de nuestras vidas,
             en el cual ante Dios y ustedes, comenzaremos un camino unidos en matrimonio.
@@ -109,6 +109,9 @@
           </div>
           <div class="col-sm-12 with-paddings">
             <button type="submit" class="btn btn--primary type--uppercase" (click)="saveRSVP(invitationForm.value)">Confirmar</button>
+          </div>
+          <div class="col-sm-12">
+            <span class="lead">{{ successMessage }}</span>
           </div>
         </div>
       </div>
