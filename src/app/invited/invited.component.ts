@@ -68,7 +68,7 @@ export class InvitedComponent implements OnInit {
         this.invitationForm.patchValue(inv);
 
         this.childrenForm = inv.children;
-        this.hasChildren = !!inv.children.length;
+        this.hasChildren = inv.children && !!inv.children.length;
         this.moreThanOne = !!inv.significant_other;
         this.head = inv.family_head;
         this.plusOne = inv.significant_other
